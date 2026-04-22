@@ -1,0 +1,84 @@
+QMainWindow {
+    background-color: #f7f4ee;
+}
+
+QTabWidget::pane {
+    border: 1px solid #d9cdb7;
+    background-color: rgba(255, 253, 248, 140);
+    border-radius: 10px;
+}
+
+
+QWidget#contenedor {
+    background-image: url("assets/images/fondo_cacao.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+QTabBar::tab {
+    background: #e9dcc8;
+    padding: 10px 16px;
+    margin: 4px;
+    border-radius: 8px;
+}
+
+QTabBar::tab:selected {
+    background: #8b5e3c;
+    color: white;
+    font-weight: bold;
+}
+
+QPushButton {
+    background-color: #6f4e37;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #5b3f2d;
+}
+
+QLabel#tituloPrincipal {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4a3425;
+    margin: 10px 0px;
+}
+
+QLabel#panelImagen {
+    background-color: rgba(243, 237, 227, 80);
+    border: 2px dashed #b89b79;
+    border-radius: 12px;
+    color: #7a6756;
+    font-size: 16px;
+}
+
+QLabel#resultadoLabel {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+QFrame#seccionInfo {
+    background-color: #f8f1e7;
+    border: 1px solid #d4b48c;
+    border-radius: 12px;
+    padding: 8px;
+}
+
+QLabel#subtituloInfo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #5a3e2b;
+    margin-bottom: 6px;
+}
+
+QTextEdit#textoInfo {
+    background-color: #fffaf3;
+    border: 1px solid #d9c3a3;
+    border-radius: 8px;
+    color: #3e2c20;
+    font-size: 14px;
+    padding: 6px;
+}
