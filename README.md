@@ -47,10 +47,10 @@ Desarrollar un sistema de visión artificial que permita clasificar automáticam
 
 El sistema está compuesto por los siguientes módulos:
 
-* **Interfaz de Usuario (GUI):** desarrollada en Python (Tkinter).
-* **Lógica de Aplicación:** procesamiento del flujo del sistema.
-* **Módulo de IA:** clasificación de imágenes con redes neuronales.
-* **Base de Datos Local:** almacenamiento mediante SQLite.
+- **Interfaz de Usuario (UI):** desarrollada en Python utilizando PySide6, permitiendo una interfaz gráfica moderna, interactiva y multiplataforma.
+- **Lógica de Aplicación:** encargada del procesamiento del flujo del sistema, gestión de eventos y control de la aplicación.
+- **Módulo de Inteligencia Artificial:** responsable de la clasificación de imágenes mediante redes neuronales convolucionales (CNN).
+- **Base de Datos Local:** almacenamiento de resultados utilizando SQLite integrado dentro del proyecto.
 
 ---
 
@@ -102,18 +102,73 @@ cacao.db
 ## Estructura del Proyecto
 
 ```
-clasificador_cacao/
+clasificador_cacao_ia/
+├── app/                          # Módulo principal de la aplicación
+│   ├── __init__.py               # Inicialización del paquete
+│   ├── controllers/              # Controladores (lógica entre UI y servicios)
+│   │   ├── __init__.py
+│   │   ├── history_controller.py     # Manejo del historial de clasificaciones
+│   │   └── prediction_controller.py  # Control de predicciones del modelo
+│   ├── models/                   # Definición de estructuras de datos (modelos)
+│   │   └── __init__.py
+│   ├── services/                 # Servicios del sistema (lógica de negocio)
+│   │   ├── __init__.py
+│   │   ├── camera_service.py         # Captura de imágenes desde cámara
+│   │   ├── database_service.py       # Gestión de la base de datos SQLite
+│   │   ├── image_processing_service.py # Procesamiento de imágenes
+│   │   └── model_service.py          # Carga y uso del modelo de IA
+│   ├── ui/                       # Interfaz gráfica (PySide6)
+│   │   ├── __init__.py
+│   │   ├── capture_view.py           # Vista de captura de imágenes
+│   │   ├── history_view.py           # Vista del historial
+│   │   ├── main_window.py            # Ventana principal
+│   │   ├── reports_view.py           # Generación de reportes
+│   │   ├── results_view.py           # Visualización de resultados
+│   │   └── tumaco_info_view.py       # Información sobre el cacao en Tumaco
+│   └── utils/                    # Utilidades y constantes del sistema
+│       ├── __init__.py
+│       └── constants.py              # Variables globales del sistema
 │
-├── app/                # Interfaz gráfica
-├── model/              # Modelo de IA
-├── database/           # Base de datos
-├── dataset/            # Imágenes de entrenamiento
-├── uploads/            # Imágenes cargadas
-├── main.py             # Archivo principal
-├── requirements.txt
-└── README.md
-```
-
+├── assets/                       # Recursos visuales de la aplicación
+│   ├── images/                  # Imágenes (logos, fondos)
+│   │   ├── logo_cacao.png
+│   │   ├── logo_cacao.ico
+│   │   └── fondo_cacao.jpg
+│   └── styles/                  # Estilos visuales (QSS)
+│       └── theme.qss                # Tema de la interfaz gráfica
+│
+├── data/                        # Datos utilizados por el sistema
+│   ├── database/
+│   │   └── cacao.db                # Base de datos local SQLite
+│   ├── dataset_cacao/             # Dataset para entrenamiento del modelo
+│   │   ├── train/                 # Datos de entrenamiento
+│   │   ├── val/                   # Datos de validación
+│   │   └── test/                  # Datos de prueba
+│   ├── images/                   # Imágenes procesadas por el sistema
+│   ├── raw_cacao/                # Imágenes originales sin procesar
+│   └── samples/                  # Muestras de prueba
+│
+├── ml/                          # Módulo de Machine Learning
+│   ├── model/                   # Modelos entrenados y resultados
+│   │   ├── cacao_classifier.keras   # Modelo base
+│   │   ├── mejor_modelo.keras       # Modelo optimizado
+│   │   ├── labels.txt               # Etiquetas de clasificación
+│   │   ├── grafica_accuracy.png     # Gráfica de precisión
+│   │   └── grafica_loss.png         # Gráfica de pérdida
+│   ├── split_dataset.py         # Script para dividir el dataset
+│   └── train_model.py           # Script de entrenamiento del modelo
+│
+├── build/                       # Archivos temporales de compilación
+├── dist/                        # Aplicación compilada (ejecutable)
+│   └── ClasificadorCacao/
+│       └── ClasificadorCacao.exe   # Ejecutable del sistema
+│
+├── env_ia/                      # Entorno virtual del modelo IA
+├── envirtual/                   # Entorno virtual general del proyecto
+├── main.py                      # Archivo principal de ejecución
+├── main.spec                    # Configuración para generar ejecutable
+├── README.md                    # Documentación del proyecto
+└── requirements.txt             # Dependencias del sistema
 ---
 
 ## 📋 Requisitos
