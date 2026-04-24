@@ -28,11 +28,11 @@ Desarrollar un sistema de visión artificial que permita clasificar automáticam
 * Implementar un modelo de inteligencia artificial para clasificación.
 * Almacenar los resultados en una base de datos local.
 * Generar reportes de clasificación.
-* Permitir la consulta de historial de resultados.
+* Permitir la consulta del historial de resultados.
 
 ---
 
-## Características del Sistema
+##  Características del Sistema
 
 * Aplicación de escritorio (no requiere navegador).
 * Interfaz gráfica amigable.
@@ -47,10 +47,10 @@ Desarrollar un sistema de visión artificial que permita clasificar automáticam
 
 El sistema está compuesto por los siguientes módulos:
 
-- **Interfaz de Usuario (UI):** desarrollada en Python utilizando PySide6, permitiendo una interfaz gráfica moderna, interactiva y multiplataforma.
-- **Lógica de Aplicación:** encargada del procesamiento del flujo del sistema, gestión de eventos y control de la aplicación.
-- **Módulo de Inteligencia Artificial:** responsable de la clasificación de imágenes mediante redes neuronales convolucionales (CNN).
-- **Base de Datos Local:** almacenamiento de resultados utilizando SQLite integrado dentro del proyecto.
+* **Interfaz de Usuario (UI):** desarrollada en Python utilizando PySide6, permitiendo una interfaz gráfica moderna, interactiva y multiplataforma.
+* **Lógica de Aplicación:** encargada del procesamiento del flujo del sistema, gestión de eventos y control de la aplicación.
+* **Módulo de Inteligencia Artificial:** responsable de la clasificación de imágenes mediante redes neuronales convolucionales (CNN).
+* **Base de Datos Local:** almacenamiento de resultados utilizando SQLite integrado dentro del proyecto.
 
 ---
 
@@ -59,7 +59,7 @@ El sistema está compuesto por los siguientes módulos:
 * Python
 * OpenCV
 * TensorFlow / Keras
-* Tkinter
+* PySide6
 * SQLite
 * Git y GitHub
 * Visual Studio Code
@@ -109,7 +109,7 @@ clasificador_cacao_ia/
 │   │   ├── __init__.py
 │   │   ├── history_controller.py     # Manejo del historial de clasificaciones
 │   │   └── prediction_controller.py  # Control de predicciones del modelo
-│   ├── models/                   # Definición de estructuras de datos (modelos)
+│   ├── models/                   # Definición de estructuras de datos
 │   │   └── __init__.py
 │   ├── services/                 # Servicios del sistema (lógica de negocio)
 │   │   ├── __init__.py
@@ -127,51 +127,38 @@ clasificador_cacao_ia/
 │   │   └── tumaco_info_view.py       # Información sobre el cacao en Tumaco
 │   └── utils/                    # Utilidades y constantes del sistema
 │       ├── __init__.py
-│       └── constants.py              # Variables globales del sistema
+│       └── constants.py              # Variables globales
 │
-├── assets/                       # Recursos visuales de la aplicación
+├── assets/                       # Recursos visuales
 │   ├── images/                  # Imágenes (logos, fondos)
-│   │   ├── logo_cacao.png
-│   │   ├── logo_cacao.ico
-│   │   └── fondo_cacao.jpg
-│   └── styles/                  # Estilos visuales (QSS)
-│       └── theme.qss                # Tema de la interfaz gráfica
+│   └── styles/                  # Estilos (QSS)
 │
-├── data/                        # Datos utilizados por el sistema
+├── data/                        # Datos del sistema
 │   ├── database/
-│   │   └── cacao.db                # Base de datos local SQLite
-│   ├── dataset_cacao/             # Dataset para entrenamiento del modelo
-│   │   ├── train/                 # Datos de entrenamiento
-│   │   ├── val/                   # Datos de validación
-│   │   └── test/                  # Datos de prueba
-│   ├── images/                   # Imágenes procesadas por el sistema
-│   ├── raw_cacao/                # Imágenes originales sin procesar
-│   └── samples/                  # Muestras de prueba
+│   │   └── cacao.db            # Base de datos SQLite
+│   ├── dataset_cacao/          # Dataset del modelo
+│   ├── images/                 # Imágenes procesadas
+│   ├── raw_cacao/              # Imágenes originales
+│   └── samples/                # Muestras de prueba
 │
 ├── ml/                          # Módulo de Machine Learning
-│   ├── model/                   # Modelos entrenados y resultados
-│   │   ├── cacao_classifier.keras   # Modelo base
-│   │   ├── mejor_modelo.keras       # Modelo optimizado
-│   │   ├── labels.txt               # Etiquetas de clasificación
-│   │   ├── grafica_accuracy.png     # Gráfica de precisión
-│   │   └── grafica_loss.png         # Gráfica de pérdida
-│   ├── split_dataset.py         # Script para dividir el dataset
-│   └── train_model.py           # Script de entrenamiento del modelo
+│   ├── model/                   # Modelos entrenados
+│   ├── split_dataset.py         # División del dataset
+│   └── train_model.py           # Entrenamiento del modelo
 │
-├── build/                       # Archivos temporales de compilación
-├── dist/                        # Aplicación compilada (ejecutable)
-│   └── ClasificadorCacao/
-│       └── ClasificadorCacao.exe   # Ejecutable del sistema
-│
-├── env_ia/                      # Entorno virtual del modelo IA
-├── envirtual/                   # Entorno virtual general del proyecto
-├── main.py                      # Archivo principal de ejecución
-├── main.spec                    # Configuración para generar ejecutable
-├── README.md                    # Documentación del proyecto
-└── requirements.txt             # Dependencias del sistema
+├── build/                       # Archivos temporales
+├── dist/                        # Ejecutable del sistema
+├── env_ia/                      # Entorno virtual IA
+├── envirtual/                   # Entorno virtual general
+├── main.py                      # Archivo principal
+├── main.spec                    # Configuración del ejecutable
+├── README.md                    # Documentación
+└── requirements.txt             # Dependencias
+```
+
 ---
 
-## 📋 Requisitos
+## Requisitos
 
 * Python 3.8 o superior
 * pip instalado
@@ -190,7 +177,7 @@ git clone https://github.com/tu-usuario/tu-repositorio.git
 ### 2. Entrar al proyecto
 
 ```
-cd clasificador_cacao
+cd clasificador_cacao_ia
 ```
 
 ### 3. Crear entorno virtual
@@ -211,13 +198,7 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 6. Crear base de datos
-
-```
-python database/init_db.py
-```
-
-### 7. Ejecutar la aplicación
+### 6. Ejecutar la aplicación
 
 ```
 python main.py
@@ -229,14 +210,14 @@ python main.py
 
 1. El usuario carga una imagen de cacao.
 2. El sistema procesa la imagen.
-3. El modelo de IA analiza características (color, textura).
+3. El modelo de IA analiza características como color y textura.
 4. Se genera una clasificación:
 
-   * Bueno 
-   * Regular 
-   * Malo 
-5. Se muestra el resultado con porcentaje.
-6. Se guarda en la base de datos.
+   * Bueno
+   * Regular
+   * Malo
+5. Se muestra el resultado con porcentaje de confianza.
+6. Se almacena en la base de datos.
 
 ---
 
@@ -261,17 +242,17 @@ Facultad de Ingeniería
 
 * Implementación en dispositivos móviles.
 * Uso de cámara en tiempo real.
-* Mejora del modelo de IA.
+* Mejora del modelo de inteligencia artificial.
 * Integración con sistemas productivos.
 
 ---
 
-##  Impacto del Proyecto
+## Impacto del Proyecto
 
 Este sistema contribuye a la modernización del sector cacaotero, mejorando la calidad del producto, reduciendo errores y facilitando la toma de decisiones.
 
 ---
 
-##  Licencia
+## Licencia
 
 Proyecto desarrollado con fines académicos.
